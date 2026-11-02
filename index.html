@@ -10,32 +10,24 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #0f4c5c;
-      --primary-dark: #0a3440;
-      --accent: #e36414;
-      --accent-hover: #c9550f;
-      --bg: #faf9f7;
-      --bg-alt: #f0ebe3;
+      --primary: #0A1F44;
+      --primary-dark: #06152e;
+      --accent: #C9A227;
+      --accent-hover: #b08e1f;
+      --bg: #f8f9fb;
+      --bg-alt: #eef1f6;
       --text: #1a1a1a;
-      --text-muted: #5c5c5c;
+      --text-muted: #5a6472;
       --white: #ffffff;
-      --border: #e5e0d8;
+      --border: #e2e6ed;
       --success: #2d6a4f;
       --radius: 12px;
-      --shadow: 0 4px 24px rgba(15, 76, 92, 0.08);
-      --shadow-lg: 0 12px 40px rgba(15, 76, 92, 0.12);
+      --shadow: 0 4px 24px rgba(10, 31, 68, 0.08);
+      --shadow-lg: 0 12px 40px rgba(10, 31, 68, 0.12);
     }
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', system-ui, -apple-system, sans-serif;
       color: var(--text);
@@ -43,739 +35,273 @@
       line-height: 1.6;
       font-size: 17px;
     }
+    a { color: inherit; text-decoration: none; }
+    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-    img {
-      max-width: 100%;
-      height: auto;
-      display: block;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1140px;
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
+    /* Header */
     header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.95);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.97);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--border);
     }
-
     .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 72px;
+      display: flex; align-items: center; justify-content: space-between; height: 72px;
     }
-
     .logo {
       font-family: 'Playfair Display', serif;
-      font-weight: 700;
-      font-size: 1.35rem;
-      color: var(--primary);
-      letter-spacing: -0.02em;
+      font-weight: 700; font-size: 1.35rem; color: var(--primary);
     }
-
-    .logo span {
-      color: var(--accent);
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-    }
-
-    nav a {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-muted);
-      transition: color 0.2s;
-    }
-
-    nav a:hover {
-      color: var(--primary);
-    }
+    .logo span { color: var(--accent); }
+    nav { display: flex; align-items: center; gap: 28px; }
+    nav a { font-size: 0.95rem; font-weight: 500; color: var(--text-muted); transition: color 0.2s; }
+    nav a:hover { color: var(--primary); }
 
     .btn {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      padding: 14px 28px;
-      font-weight: 600;
-      font-size: 1rem;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      transition: all 0.2s ease;
-      text-align: center;
+      display: inline-flex; align-items: center; justify-content: center;
+      padding: 14px 28px; font-weight: 600; font-size: 1rem;
+      border-radius: 8px; border: none; cursor: pointer; transition: all 0.2s;
     }
-
     .btn-primary {
-      background: var(--accent);
-      color: var(--white);
-      box-shadow: 0 4px 14px rgba(227, 100, 20, 0.3);
+      background: var(--accent); color: var(--primary-dark);
+      box-shadow: 0 4px 14px rgba(201, 162, 39, 0.35);
     }
-
-    .btn-primary:hover {
-      background: var(--accent-hover);
-      transform: translateY(-1px);
-      box-shadow: 0 6px 20px rgba(227, 100, 20, 0.35);
-    }
-
+    .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
     .btn-outline {
-      background: transparent;
-      color: var(--white);
-      border: 2px solid rgba(255, 255, 255, 0.7);
+      background: transparent; color: white;
+      border: 2px solid rgba(255,255,255,0.75);
     }
+    .btn-outline:hover { background: white; color: var(--primary); }
+    .btn-sm { padding: 10px 20px; font-size: 0.9rem; }
 
-    .btn-outline:hover {
-      background: var(--white);
-      color: var(--primary);
-    }
-
-    .btn-sm {
-      padding: 10px 20px;
-      font-size: 0.9rem;
-    }
-
+    /* Hero */
     .hero {
-      background: linear-gradient(160deg, #0f4c5c 0%, #1a6b7c 50%, #0a3440 100%);
-      color: var(--white);
-      padding: 80px 0 90px;
-      position: relative;
-      overflow: hidden;
+      background: linear-gradient(160deg, #0A1F44 0%, #122a5c 50%, #06152e 100%);
+      color: white; padding: 80px 0 90px; position: relative; overflow: hidden;
     }
-
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: -20%;
-      right: -10%;
-      width: 600px;
-      height: 600px;
-      background: radial-gradient(circle, rgba(227, 100, 20, 0.15) 0%, transparent 70%);
-      pointer-events: none;
-    }
-
     .hero-grid {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 60px;
-      align-items: center;
+      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 50px; align-items: center;
     }
-
     .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(255, 255, 255, 0.12);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 6px 14px;
-      border-radius: 50px;
-      font-size: 0.85rem;
-      font-weight: 500;
-      margin-bottom: 24px;
+      display: inline-flex; align-items: center;
+      background: rgba(201, 162, 39, 0.15); border: 1px solid rgba(201, 162, 39, 0.35);
+      padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; margin-bottom: 24px;
+      color: #e8d48b;
     }
-
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.4rem, 5vw, 3.4rem);
-      font-weight: 700;
-      line-height: 1.15;
-      letter-spacing: -0.02em;
-      margin-bottom: 20px;
+      font-size: clamp(2.3rem, 4.8vw, 3.3rem); font-weight: 700;
+      line-height: 1.18; margin-bottom: 20px;
     }
-
-    .hero h1 .highlight {
-      color: #f4a261;
-    }
-
+    .hero h1 .highlight { color: var(--accent); }
     .hero-sub {
-      font-size: 1.2rem;
-      opacity: 0.92;
-      max-width: 520px;
-      margin-bottom: 32px;
-      line-height: 1.55;
+      font-size: 1.15rem; opacity: 0.92; max-width: 520px; margin-bottom: 32px; line-height: 1.55;
     }
-
-    .hero-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-bottom: 36px;
-    }
-
-    .hero-guarantee {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      font-size: 0.95rem;
-      opacity: 0.9;
-    }
-
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
+    .hero-guarantee { font-size: 0.95rem; opacity: 0.9; }
     .hero-stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: var(--radius);
-      padding: 28px 20px;
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius); padding: 26px 16px;
     }
+    .stat { text-align: center; }
+    .stat-value { font-size: 1.7rem; font-weight: 800; color: var(--accent); }
+    .stat-label { font-size: 0.82rem; opacity: 0.85; margin-top: 4px; }
 
-    .stat {
-      text-align: center;
-    }
-
-    .stat-value {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: #f4a261;
-      line-height: 1.2;
-    }
-
-    .stat-label {
-      font-size: 0.85rem;
-      opacity: 0.85;
-      margin-top: 4px;
-    }
-
+    /* Trust bar */
     .trust-bar {
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      padding: 18px 0;
+      background: white; border-bottom: 1px solid var(--border); padding: 18px 0;
     }
-
     .trust-bar-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      align-items: center;
-      gap: 32px;
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      font-weight: 500;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 28px;
+      font-size: 0.9rem; color: var(--text-muted); font-weight: 500;
     }
 
-    .trust-item {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .trust-item svg {
-      color: var(--success);
-    }
-
-    section {
-      padding: 80px 0;
-    }
-
+    /* Sections */
+    section { padding: 80px 0; }
     .section-label {
-      display: inline-block;
-      font-size: 0.8rem;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 12px;
+      display: inline-block; font-size: 0.8rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
     }
-
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 4vw, 2.6rem);
-      font-weight: 700;
-      line-height: 1.2;
-      letter-spacing: -0.02em;
-      margin-bottom: 16px;
-      color: var(--primary-dark);
+      font-size: clamp(1.9rem, 4vw, 2.5rem); font-weight: 700;
+      line-height: 1.2; margin-bottom: 16px; color: var(--primary);
     }
-
     .section-sub {
-      font-size: 1.15rem;
-      color: var(--text-muted);
-      max-width: 640px;
-      margin-bottom: 48px;
+      font-size: 1.12rem; color: var(--text-muted); max-width: 640px; margin-bottom: 48px;
     }
+    .text-center { text-align: center; }
+    .text-center .section-sub { margin-left: auto; margin-right: auto; }
 
-    .text-center {
-      text-align: center;
-    }
-
-    .text-center .section-sub {
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .benefits {
-      background: var(--white);
-    }
-
-    .benefits-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-    }
-
+    /* Benefits */
+    .benefits { background: white; }
+    .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .benefit-card {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px;
       transition: transform 0.2s, box-shadow 0.2s;
     }
-
-    .benefit-card:hover {
-      transform: translateY(-4px);
-      box-shadow: var(--shadow);
-    }
-
-    .benefit-icon {
-      width: 48px;
-      height: 48px;
-      background: linear-gradient(135deg, var(--primary), #1a6b7c);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 20px;
-      color: white;
-    }
-
+    .benefit-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
     .benefit-card h3 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: var(--primary-dark);
+      font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--primary);
     }
+    .benefit-card p { color: var(--text-muted); font-size: 1rem; }
 
-    .benefit-card p {
-      color: var(--text-muted);
-      font-size: 1rem;
-    }
-
-    .process {
-      background: var(--bg-alt);
-    }
-
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 24px;
-    }
-
+    /* Process */
+    .process { background: var(--bg-alt); }
+    .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
     .step {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 28px 24px;
-      box-shadow: var(--shadow);
-      text-align: center;
+      background: white; border-radius: var(--radius); padding: 28px 20px;
+      box-shadow: var(--shadow); text-align: center;
     }
-
     .step-number {
-      width: 40px;
-      height: 40px;
-      background: var(--accent);
-      color: white;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-      margin: 0 auto 16px;
+      width: 40px; height: 40px; background: var(--accent); color: var(--primary-dark);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1.1rem; margin: 0 auto 16px;
     }
+    .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
+    .step p { font-size: 0.93rem; color: var(--text-muted); }
 
-    .step h3 {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--primary-dark);
-    }
-
-    .step p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
-    .proof {
-      background: var(--white);
-    }
-
-    .testimonials {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 28px;
-    }
-
+    /* Proof / Testimonials */
+    .proof { background: white; }
+    .testimonials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .testimonial {
-      background: var(--bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      position: relative;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 32px; position: relative;
     }
-
     .testimonial::before {
       content: '"';
       font-family: 'Playfair Display', serif;
-      font-size: 5rem;
-      color: var(--accent);
-      opacity: 0.2;
-      position: absolute;
-      top: 8px;
-      left: 20px;
-      line-height: 1;
+      font-size: 4.5rem; color: var(--accent); opacity: 0.25;
+      position: absolute; top: 6px; left: 18px; line-height: 1;
     }
-
     .testimonial-body {
-      position: relative;
-      z-index: 1;
-      font-size: 1.05rem;
-      color: var(--text);
-      margin-bottom: 24px;
-      line-height: 1.65;
+      position: relative; z-index: 1; font-size: 1.05rem;
+      color: var(--text); margin-bottom: 22px; line-height: 1.65;
     }
-
-    .testimonial-author {
-      display: flex;
-      align-items: center;
-      gap: 14px;
-    }
-
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
     .author-avatar {
-      width: 48px;
-      height: 48px;
-      border-radius: 50%;
-      background: var(--primary);
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.1rem;
-      flex-shrink: 0;
+      width: 46px; height: 46px; border-radius: 50%;
+      background: var(--primary); color: white;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 1rem; flex-shrink: 0;
     }
+    .author-info strong { display: block; font-weight: 600; color: var(--primary); }
+    .author-info span { font-size: 0.88rem; color: var(--text-muted); }
 
-    .author-info strong {
-      display: block;
-      font-weight: 600;
-      color: var(--primary-dark);
-    }
-
-    .author-info span {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-    }
-
+    /* Difference */
     .difference {
-      background: linear-gradient(160deg, #0f4c5c 0%, #0a3440 100%);
-      color: var(--white);
+      background: linear-gradient(160deg, #0A1F44 0%, #06152e 100%);
+      color: white;
     }
-
-    .difference .section-title {
-      color: var(--white);
-    }
-
-    .difference .section-sub {
-      color: rgba(255, 255, 255, 0.85);
-    }
-
-    .diff-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-
+    .difference .section-title { color: white; }
+    .difference .section-sub { color: rgba(255,255,255,0.85); }
+    .diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .diff-item {
-      background: rgba(255, 255, 255, 0.08);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: var(--radius);
-      padding: 28px 24px;
+      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius); padding: 26px 22px;
     }
+    .diff-item h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--accent); }
+    .diff-item p { font-size: 0.95rem; opacity: 0.9; line-height: 1.55; }
 
-    .diff-item h3 {
-      font-size: 1.15rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-      color: #f4a261;
-    }
-
-    .diff-item p {
-      font-size: 0.98rem;
-      opacity: 0.9;
-      line-height: 1.55;
-    }
-
-    .story {
-      background: var(--bg);
-    }
-
-    .story-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 60px;
-      align-items: center;
-    }
-
+    /* Story */
+    .story { background: var(--bg); }
+    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
     .story-content h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.4rem);
-      color: var(--primary-dark);
-      margin-bottom: 20px;
+      font-size: clamp(1.8rem, 3.5vw, 2.3rem); color: var(--primary); margin-bottom: 18px;
     }
-
-    .story-content p {
-      color: var(--text-muted);
-      margin-bottom: 16px;
-      font-size: 1.05rem;
-    }
-
+    .story-content p { color: var(--text-muted); margin-bottom: 14px; font-size: 1.05rem; }
     .story-highlight {
-      background: var(--white);
-      border-left: 4px solid var(--accent);
-      padding: 20px 24px;
-      border-radius: 0 var(--radius) var(--radius) 0;
-      margin-top: 24px;
+      background: white; border-left: 4px solid var(--accent);
+      padding: 18px 22px; border-radius: 0 var(--radius) var(--radius) 0; margin-top: 22px;
     }
+    .story-highlight p { margin: 0; font-weight: 500; color: var(--text); }
 
-    .story-highlight p {
-      margin: 0;
-      font-weight: 500;
-      color: var(--text);
-    }
-
-    .pricing {
-      background: var(--white);
-    }
-
+    /* Pricing */
+    .pricing { background: white; }
     .pricing-card {
-      max-width: 640px;
-      margin: 0 auto;
-      background: var(--bg);
-      border: 2px solid var(--primary);
-      border-radius: 16px;
-      padding: 48px 40px;
-      text-align: center;
-      box-shadow: var(--shadow-lg);
+      max-width: 620px; margin: 0 auto; background: var(--bg);
+      border: 2px solid var(--primary); border-radius: 16px;
+      padding: 44px 36px; text-align: center; box-shadow: var(--shadow-lg);
     }
-
     .price {
-      font-size: 3.5rem;
-      font-weight: 800;
-      color: var(--primary);
-      line-height: 1;
-      margin: 16px 0 8px;
+      font-size: 3.4rem; font-weight: 800; color: var(--primary); line-height: 1; margin: 14px 0 6px;
     }
-
-    .price span {
-      font-size: 1.3rem;
-      font-weight: 600;
-      color: var(--text-muted);
-    }
-
-    .pricing-features {
-      list-style: none;
-      margin: 32px 0;
-      text-align: left;
-    }
-
+    .price span { font-size: 1.25rem; font-weight: 600; color: var(--text-muted); }
+    .pricing-features { list-style: none; margin: 28px 0; text-align: left; }
     .pricing-features li {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 10px 0;
-      border-bottom: 1px solid var(--border);
-      font-size: 1.05rem;
+      padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 1.02rem;
     }
+    .pricing-features li:last-child { border-bottom: none; }
 
-    .pricing-features li:last-child {
-      border-bottom: none;
-    }
-
-    .pricing-features svg {
-      color: var(--success);
-      flex-shrink: 0;
-      margin-top: 3px;
-    }
-
-    .faq {
-      background: var(--bg-alt);
-    }
-
-    .faq-list {
-      max-width: 760px;
-      margin: 0 auto;
-    }
-
+    /* FAQ */
+    .faq { background: var(--bg-alt); }
+    .faq-list { max-width: 740px; margin: 0 auto; }
     .faq-item {
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      margin-bottom: 12px;
-      overflow: hidden;
+      background: white; border: 1px solid var(--border);
+      border-radius: var(--radius); margin-bottom: 12px; overflow: hidden;
     }
-
     .faq-question {
-      width: 100%;
-      padding: 20px 24px;
-      background: none;
-      border: none;
-      text-align: left;
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--primary-dark);
-      cursor: pointer;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 16px;
+      width: 100%; padding: 18px 22px; background: none; border: none;
+      text-align: left; font-size: 1.08rem; font-weight: 600; color: var(--primary);
+      cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
     }
-
-    .faq-question:hover {
-      background: var(--bg);
-    }
-
-    .faq-icon {
-      font-size: 1.4rem;
-      color: var(--accent);
-      transition: transform 0.2s;
-    }
-
-    .faq-item.open .faq-icon {
-      transform: rotate(45deg);
-    }
-
+    .faq-question:hover { background: var(--bg); }
+    .faq-icon { font-size: 1.35rem; color: var(--accent); transition: transform 0.2s; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
     .faq-answer {
-      display: none;
-      padding: 0 24px 20px;
-      color: var(--text-muted);
-      font-size: 1.02rem;
-      line-height: 1.6;
+      display: none; padding: 0 22px 18px; color: var(--text-muted); font-size: 1rem; line-height: 1.6;
     }
+    .faq-item.open .faq-answer { display: block; }
 
-    .faq-item.open .faq-answer {
-      display: block;
-    }
-
+    /* Final CTA */
     .final-cta {
-      background: linear-gradient(160deg, #0f4c5c 0%, #0a3440 100%);
-      color: var(--white);
-      text-align: center;
-      padding: 90px 0;
+      background: linear-gradient(160deg, #0A1F44 0%, #06152e 100%);
+      color: white; text-align: center; padding: 90px 0;
     }
-
     .final-cta h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 2.8rem);
-      margin-bottom: 16px;
+      font-size: clamp(2rem, 4vw, 2.7rem); margin-bottom: 16px;
     }
-
     .final-cta p {
-      font-size: 1.2rem;
-      opacity: 0.9;
-      max-width: 560px;
-      margin: 0 auto 36px;
+      font-size: 1.15rem; opacity: 0.9; max-width: 540px; margin: 0 auto 36px;
     }
+    .final-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
 
-    .final-ctas {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 16px;
-    }
-
+    /* Footer */
     footer {
-      background: #0a2a33;
-      color: rgba(255, 255, 255, 0.75);
-      padding: 48px 0 32px;
-      font-size: 0.95rem;
+      background: #06152e; color: rgba(255,255,255,0.75); padding: 48px 0 32px; font-size: 0.95rem;
     }
-
     .footer-inner {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      gap: 32px;
-      margin-bottom: 32px;
+      display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; margin-bottom: 32px;
     }
-
     .footer-brand {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.3rem;
-      color: white;
-      margin-bottom: 8px;
+      font-family: 'Playfair Display', serif; font-size: 1.3rem; color: white; margin-bottom: 8px;
     }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
-
-    .footer-links a:hover {
-      color: white;
-    }
-
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a:hover { color: white; }
     .footer-bottom {
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      padding-top: 24px;
-      text-align: center;
-      font-size: 0.85rem;
-      opacity: 0.7;
+      border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
+      text-align: center; font-size: 0.85rem; opacity: 0.7;
     }
 
+    /* Responsive */
     @media (max-width: 900px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-      .benefits-grid,
-      .testimonials,
-      .story-grid {
-        grid-template-columns: 1fr;
-      }
-      .process-steps {
-        grid-template-columns: 1fr 1fr;
-      }
-      .diff-grid {
-        grid-template-columns: 1fr;
-      }
-      nav {
-        display: none;
-      }
+      .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+      .benefits-grid, .testimonials, .story-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; }
+      .diff-grid { grid-template-columns: 1fr; }
+      nav { display: none; }
     }
-
     @media (max-width: 600px) {
-      .hero {
-        padding: 60px 0 70px;
-      }
-      .hero-stats {
-        grid-template-columns: 1fr;
-      }
-      .process-steps {
-        grid-template-columns: 1fr;
-      }
-      .pricing-card {
-        padding: 36px 24px;
-      }
-      .price {
-        font-size: 2.8rem;
-      }
-      section {
-        padding: 60px 0;
-      }
+      .hero { padding: 60px 0 70px; }
+      .hero-stats { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr; }
+      .pricing-card { padding: 32px 22px; }
+      .price { font-size: 2.8rem; }
+      section { padding: 60px 0; }
     }
   </style>
 </head>
@@ -796,9 +322,7 @@
   <section class="hero">
     <div class="container hero-grid">
       <div>
-        <div class="hero-badge">
-          Virtual assistants from the Philippines • Managed with an American eye
-        </div>
+        <div class="hero-badge">Virtual assistants from the Philippines • Managed with an American eye</div>
         <h1>A virtual assistant who fits <span class="highlight">your business</span>, not just your job post.</h1>
         <p class="hero-sub">
           We match each client with one hand-picked assistant and manage the relationship with cultural insight and real accountability. Some of our assistants have been with us since 2018.
@@ -808,7 +332,7 @@
           <a href="mailto:ewcvirtueassist@gmail.com?subject=I%20need%20a%20virtual%20assistant" class="btn btn-outline">Tell Us What You Need</a>
         </div>
         <div class="hero-guarantee">
-          <span><strong>7-day replacement guarantee</strong> if the fit isn’t right. No questions asked.</span>
+          <strong>7-day replacement guarantee</strong> if the fit isn’t right. No questions asked.
         </div>
       </div>
       <div class="hero-stats">
@@ -830,10 +354,10 @@
 
   <div class="trust-bar">
     <div class="container trust-bar-inner">
-      <div class="trust-item">Hand-matched, not algorithm-matched</div>
-      <div class="trust-item">Live video verification before placement</div>
-      <div class="trust-item">American leadership + Filipino insight</div>
-      <div class="trust-item">Clients with us 5+ years</div>
+      <div>Hand-matched, not algorithm-matched</div>
+      <div>Live video verification before placement</div>
+      <div>American leadership + Filipino insight</div>
+      <div>Clients with us 5+ years</div>
     </div>
   </div>
 
@@ -902,30 +426,30 @@
       <div class="text-center">
         <div class="section-label">Trusted by Growing Businesses</div>
         <h2 class="section-title">What clients say when they introduce us</h2>
-        <p class="section-sub">Real introductions from long-term clients. These are the words they use when recommending us to people they respect.</p>
+        <p class="section-sub">Real words from long-term clients. Shared with permission and kept fully anonymous.</p>
       </div>
       <div class="testimonials">
         <div class="testimonial">
           <div class="testimonial-body">
-            “I wanted to introduce you to Sal Caso, founder of UBE. Aside from being a friend, Sal and his team manage a number of properties throughout New Jersey… Sal, George and his team have been instrumental to our business. They’ve been trusted partners to us for years, and I thought there could be some value in the two of you knowing one another. George, Sal is someone I trust and respect tremendously…”
+            “Your assistants have been instrumental to our business, and you’ve been a trusted partner for years.”
           </div>
           <div class="testimonial-author">
-            <div class="author-avatar">DG</div>
+            <div class="author-avatar">HO</div>
             <div class="author-info">
-              <strong>Demetrios Gianniris</strong>
-              <span>Associate Principal & Head of Operations/Technology · MG Engineering D.P.C.</span>
+              <strong>Head of Operations</strong>
+              <span>Professional services firm</span>
             </div>
           </div>
         </div>
         <div class="testimonial">
           <div class="testimonial-body">
-            “I would like to refer you to Zuni Madera of MC Interiors. She is interested in learning more about virtual assistance and I let her know how much help your assistants have provided MG Engineering. Feel free to connect to discuss further.”
+            “I tell colleagues how much your assistants have helped us, and I’m happy to introduce them.”
           </div>
           <div class="testimonial-author">
-            <div class="author-avatar">LC</div>
+            <div class="author-avatar">MD</div>
             <div class="author-info">
-              <strong>Liset Cordero</strong>
-              <span>Director of Marketing · MG Engineering D.P.C.</span>
+              <strong>Marketing Director</strong>
+              <span>Professional services firm</span>
             </div>
           </div>
         </div>
@@ -936,9 +460,9 @@
   <section class="difference">
     <div class="container">
       <div class="text-center">
-        <div class="section-label" style="color:#f4a261;">The EWC Difference</div>
+        <div class="section-label" style="color:var(--accent);">The EWC Difference</div>
         <h2 class="section-title">What sets us apart from typical VA agencies</h2>
-        <p class="section-sub">Seven reasons clients stay with us for years instead of cycling through freelancers.</p>
+        <p class="section-sub">Reasons clients stay with us for years instead of cycling through freelancers.</p>
       </div>
       <div class="diff-grid">
         <div class="diff-item">
@@ -981,21 +505,13 @@
         </div>
       </div>
       <div>
-        <div style="background:var(--white);border-radius:16px;padding:40px;box-shadow:var(--shadow-lg);border:1px solid var(--border);">
-          <h3 style="font-size:1.3rem;color:var(--primary-dark);margin-bottom:20px;">What you can expect</h3>
-          <ul style="list-style:none;display:flex;flex-direction:column;gap:16px;">
-            <li style="display:flex;gap:12px;align-items:flex-start;">
-              <span>Your assistant works through EWC. We handle payroll; you direct the daily work.</span>
-            </li>
-            <li style="display:flex;gap:12px;align-items:flex-start;">
-              <span>Communication stays simple: email + Google Meet or Zoom. Use the tools you already have.</span>
-            </li>
-            <li style="display:flex;gap:12px;align-items:flex-start;">
-              <span>We do not train the assistants. We source and match the best-fit person, then verify setup and references.</span>
-            </li>
-            <li style="display:flex;gap:12px;align-items:flex-start;">
-              <span>Specialist skills (e.g. AutoCAD) may be priced slightly higher — always agreed before you start.</span>
-            </li>
+        <div style="background:white;border-radius:16px;padding:36px;box-shadow:var(--shadow-lg);border:1px solid var(--border);">
+          <h3 style="font-size:1.25rem;color:var(--primary);margin-bottom:18px;">What you can expect</h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+            <li>Your assistant works through EWC. We handle payroll; you direct the daily work.</li>
+            <li>Communication stays simple: email + Google Meet or Zoom. Use the tools you already have.</li>
+            <li>We do not train the assistants. We source and match the best-fit person, then verify setup and references.</li>
+            <li>Specialist skills (e.g. AutoCAD) may be priced slightly higher — always agreed before you start.</li>
           </ul>
         </div>
       </div>
@@ -1012,7 +528,7 @@
       <div class="pricing-card">
         <div class="section-label">Flat Client Rate</div>
         <div class="price">$10<span>/hr</span></div>
-        <p style="color:var(--text-muted);margin-bottom:8px;">Invoiced for total hours — biweekly or monthly</p>
+        <p style="color:var(--text-muted);margin-bottom:6px;">Invoiced for total hours — biweekly or monthly</p>
         <ul class="pricing-features">
           <li>Hand-matched virtual assistant from the Philippines</li>
           <li>Live video verification of workstation & credentials</li>
@@ -1037,54 +553,42 @@
             Who does the assistant work for?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
-            Your assistant works through EWC Virtue Assist. We handle payroll and the employment side, and you direct the daily work.
-          </div>
+          <div class="faq-answer">Your assistant works through EWC Virtue Assist. We handle payroll and the employment side, and you direct the daily work.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             What does it cost?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
-            A flat $10/hr. Roles that need specialist skills, such as executive assistance with AutoCAD, may be set slightly higher and we agree on it before you start.
-          </div>
+          <div class="faq-answer">A flat $10/hr. Roles that need specialist skills, such as executive assistance with AutoCAD, may be set slightly higher and we agree on it before you start.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             How do I pay?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
-            We invoice for total hours, biweekly or monthly depending on your preference.
-          </div>
+          <div class="faq-answer">We invoice for total hours, biweekly or monthly depending on your preference.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             Do you train the assistants?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
-            We do not. We source and match the best-fit person, then verify their setup and references before placement.
-          </div>
+          <div class="faq-answer">We do not. We source and match the best-fit person, then verify their setup and references before placement.</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             How do we communicate?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
-            Keep it simple. We talk by email and meet face to face on Google Meet or Zoom, whichever you already use. Your assistant joins the same way, so there is nothing new to learn and no extra software to buy. You can also use the tools you already work in, like Slack or your project software, and we will set it up together.
-          </div>
+          <div class="faq-answer">Keep it simple. We talk by email and meet face to face on Google Meet or Zoom, whichever you already use. Your assistant joins the same way. You can also use the tools you already work in (Slack, project software, etc.).</div>
         </div>
         <div class="faq-item">
           <button class="faq-question" onclick="toggleFaq(this)">
             What if the fit isn’t right?
             <span class="faq-icon">+</span>
           </button>
-          <div class="faq-answer">
-            Tell us at any time. We find you a replacement within 7 days. Our clients stay because we work on trust, and some have been with us for over five years.
-          </div>
+          <div class="faq-answer">Tell us at any time. We find you a replacement within 7 days. Our clients stay because we work on trust, and some have been with us for over five years.</div>
         </div>
       </div>
     </div>
