@@ -62,7 +62,6 @@
       padding: 0 24px;
     }
 
-    /* ========== HEADER ========== */
     header {
       position: sticky;
       top: 0;
@@ -135,17 +134,6 @@
       box-shadow: 0 6px 20px rgba(227, 100, 20, 0.35);
     }
 
-    .btn-secondary {
-      background: var(--white);
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
-
-    .btn-secondary:hover {
-      background: var(--primary);
-      color: var(--white);
-    }
-
     .btn-outline {
       background: transparent;
       color: var(--white);
@@ -162,7 +150,6 @@
       font-size: 0.9rem;
     }
 
-    /* ========== HERO ========== */
     .hero {
       background: linear-gradient(160deg, #0f4c5c 0%, #1a6b7c 50%, #0a3440 100%);
       color: var(--white);
@@ -238,10 +225,6 @@
       opacity: 0.9;
     }
 
-    .hero-guarantee svg {
-      flex-shrink: 0;
-    }
-
     .hero-stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -269,7 +252,6 @@
       margin-top: 4px;
     }
 
-    /* ========== TRUST BAR ========== */
     .trust-bar {
       background: var(--white);
       border-bottom: 1px solid var(--border);
@@ -297,7 +279,6 @@
       color: var(--success);
     }
 
-    /* ========== SECTION COMMON ========== */
     section {
       padding: 80px 0;
     }
@@ -338,7 +319,6 @@
       margin-right: auto;
     }
 
-    /* ========== BENEFITS / DIFFERENCE ========== */
     .benefits {
       background: var(--white);
     }
@@ -386,7 +366,6 @@
       font-size: 1rem;
     }
 
-    /* ========== PROCESS ========== */
     .process {
       background: var(--bg-alt);
     }
@@ -395,11 +374,9 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 24px;
-      counter-reset: step;
     }
 
     .step {
-      position: relative;
       background: var(--white);
       border-radius: var(--radius);
       padding: 28px 24px;
@@ -433,7 +410,6 @@
       color: var(--text-muted);
     }
 
-    /* ========== SOCIAL PROOF ========== */
     .proof {
       background: var(--white);
     }
@@ -504,7 +480,6 @@
       color: var(--text-muted);
     }
 
-    /* ========== DIFFERENCE LISTICLE ========== */
     .difference {
       background: linear-gradient(160deg, #0f4c5c 0%, #0a3440 100%);
       color: var(--white);
@@ -544,7 +519,6 @@
       line-height: 1.55;
     }
 
-    /* ========== STORY ========== */
     .story {
       background: var(--bg);
     }
@@ -583,7 +557,6 @@
       color: var(--text);
     }
 
-    /* ========== PRICING ========== */
     .pricing {
       background: var(--white);
     }
@@ -638,7 +611,6 @@
       margin-top: 3px;
     }
 
-    /* ========== FAQ ========== */
     .faq {
       background: var(--bg-alt);
     }
@@ -698,7 +670,6 @@
       display: block;
     }
 
-    /* ========== FINAL CTA ========== */
     .final-cta {
       background: linear-gradient(160deg, #0f4c5c 0%, #0a3440 100%);
       color: var(--white);
@@ -726,7 +697,6 @@
       gap: 16px;
     }
 
-    /* ========== FOOTER ========== */
     footer {
       background: #0a2a33;
       color: rgba(255, 255, 255, 0.75);
@@ -766,31 +736,22 @@
       opacity: 0.7;
     }
 
-    /* ========== RESPONSIVE ========== */
     @media (max-width: 900px) {
       .hero-grid {
         grid-template-columns: 1fr;
         gap: 40px;
       }
-
-      .hero-stats {
-        grid-template-columns: repeat(3, 1fr);
-      }
-
       .benefits-grid,
       .testimonials,
       .story-grid {
         grid-template-columns: 1fr;
       }
-
       .process-steps {
         grid-template-columns: 1fr 1fr;
       }
-
       .diff-grid {
         grid-template-columns: 1fr;
       }
-
       nav {
         display: none;
       }
@@ -800,24 +761,18 @@
       .hero {
         padding: 60px 0 70px;
       }
-
       .hero-stats {
         grid-template-columns: 1fr;
-        gap: 20px;
       }
-
       .process-steps {
         grid-template-columns: 1fr;
       }
-
       .pricing-card {
         padding: 36px 24px;
       }
-
       .price {
         font-size: 2.8rem;
       }
-
       section {
         padding: 60px 0;
       }
@@ -825,7 +780,6 @@
   </style>
 </head>
 <body>
-  <!-- HEADER -->
   <header>
     <div class="container header-inner">
       <a href="/" class="logo">EWC <span>Virtue Assist</span></a>
@@ -839,12 +793,10 @@
     </div>
   </header>
 
-  <!-- HERO -->
   <section class="hero">
     <div class="container hero-grid">
       <div>
         <div class="hero-badge">
-          <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0zm3.5 7.5a.5.5 0 0 0-.5-.5H9V4.5a.5.5 0 0 0-1 0V7H5.5a.5.5 0 0 0 0 1H8v2.5a.5.5 0 0 0 1 0V8h2.5a.5.5 0 0 0 .5-.5z"/></svg>
           Virtual assistants from the Philippines • Managed with an American eye
         </div>
         <h1>A virtual assistant who fits <span class="highlight">your business</span>, not just your job post.</h1>
@@ -853,4 +805,328 @@
         </p>
         <div class="hero-ctas">
           <a href="https://calendly.com/ewcvirtueassist/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Free Intro Call</a>
-          <a href="mailto:ewcvirtueassist@gmail.com?subject=I%20need%20a%20virtual%20assistant" 
+          <a href="mailto:ewcvirtueassist@gmail.com?subject=I%20need%20a%20virtual%20assistant" class="btn btn-outline">Tell Us What You Need</a>
+        </div>
+        <div class="hero-guarantee">
+          <span><strong>7-day replacement guarantee</strong> if the fit isn’t right. No questions asked.</span>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-value">$10/hr</div>
+          <div class="stat-label">Flat client rate</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">6–10</div>
+          <div class="stat-label">Days to match</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">7 days</div>
+          <div class="stat-label">Replacement if needed</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="trust-bar">
+    <div class="container trust-bar-inner">
+      <div class="trust-item">Hand-matched, not algorithm-matched</div>
+      <div class="trust-item">Live video verification before placement</div>
+      <div class="trust-item">American leadership + Filipino insight</div>
+      <div class="trust-item">Clients with us 5+ years</div>
+    </div>
+  </div>
+
+  <section class="benefits" id="difference">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">People First. Software Second.</div>
+        <h2 class="section-title">Why businesses choose EWC Virtue Assist</h2>
+        <p class="section-sub">Plenty of agencies send you a stack of résumés. We pick one person for you — based on skill, experience, personality, and the working style you prefer.</p>
+      </div>
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <h3>Matched by hand</h3>
+          <p>We weigh skill level, experience, personality, and your preference for a male or female assistant. No algorithm decides who joins your team.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Verified live</h3>
+          <p>Before placement, George meets each candidate on a live video session to check their workstation, computer setup, credentials, and references. Free to you.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Managed with care</h3>
+          <p>Led by George (American, lived in the Philippines since 2010) and Caroline (Filipina). They handle sensitive cultural and language moments so small issues never become big ones.</p>
+        </div>
+        <div class="benefit-card">
+          <h3>Simple, transparent pricing</h3>
+          <p>One flat rate of $10/hr. We run payroll and invoice you for total hours — biweekly or monthly, whichever suits you. No hidden fees.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="process" id="how">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">From First Call to First Task</div>
+        <h2 class="section-title">Most searches take 6 to 10 days</h2>
+        <p class="section-sub">Here’s exactly what happens in that time — and why clients stay for years.</p>
+      </div>
+      <div class="process-steps">
+        <div class="step">
+          <div class="step-number">1</div>
+          <h3>We learn your work</h3>
+          <p>A short call about your tasks, tools, hours, and the kind of person you work well with.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">2</div>
+          <h3>We search our sources</h3>
+          <p>We find the best-fit candidate and interview them ourselves. No résumé dumps.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">3</div>
+          <h3>We verify on video</h3>
+          <p>Workstation, computer requirements, credentials, and references checked live before you hear a name.</p>
+        </div>
+        <div class="step">
+          <div class="step-number">4</div>
+          <h3>You meet your assistant</h3>
+          <p>Clear profile with strengths, honest skill gaps, and terms — then a start date.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="proof" id="proof">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">Trusted by Growing Businesses</div>
+        <h2 class="section-title">What clients say when they introduce us</h2>
+        <p class="section-sub">Real introductions from long-term clients. These are the words they use when recommending us to people they respect.</p>
+      </div>
+      <div class="testimonials">
+        <div class="testimonial">
+          <div class="testimonial-body">
+            “I wanted to introduce you to Sal Caso, founder of UBE. Aside from being a friend, Sal and his team manage a number of properties throughout New Jersey… Sal, George and his team have been instrumental to our business. They’ve been trusted partners to us for years, and I thought there could be some value in the two of you knowing one another. George, Sal is someone I trust and respect tremendously…”
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">DG</div>
+            <div class="author-info">
+              <strong>Demetrios Gianniris</strong>
+              <span>Associate Principal & Head of Operations/Technology · MG Engineering D.P.C.</span>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial">
+          <div class="testimonial-body">
+            “I would like to refer you to Zuni Madera of MC Interiors. She is interested in learning more about virtual assistance and I let her know how much help your assistants have provided MG Engineering. Feel free to connect to discuss further.”
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">LC</div>
+            <div class="author-info">
+              <strong>Liset Cordero</strong>
+              <span>Director of Marketing · MG Engineering D.P.C.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="difference">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label" style="color:#f4a261;">The EWC Difference</div>
+        <h2 class="section-title">What sets us apart from typical VA agencies</h2>
+        <p class="section-sub">Seven reasons clients stay with us for years instead of cycling through freelancers.</p>
+      </div>
+      <div class="diff-grid">
+        <div class="diff-item">
+          <h3>One person, not a pool</h3>
+          <p>You get one carefully matched assistant who becomes part of your team — not a rotating cast of strangers.</p>
+        </div>
+        <div class="diff-item">
+          <h3>Live verification</h3>
+          <p>Every candidate is met on video by George before you ever see a profile. Setup, credentials, and references checked.</p>
+        </div>
+        <div class="diff-item">
+          <h3>Cultural bridge built in</h3>
+          <p>American leadership (George) + Filipina insight (Caroline) means misunderstandings get resolved before they grow.</p>
+        </div>
+        <div class="diff-item">
+          <h3>Flat $10/hr — no surprises</h3>
+          <p>Transparent pricing. We handle payroll. You get invoiced for actual hours. Specialist skills quoted upfront.</p>
+        </div>
+        <div class="diff-item">
+          <h3>7-day replacement promise</h3>
+          <p>If the fit isn’t right, tell us. We find a replacement within 7 days. Clients stay because we work on trust.</p>
+        </div>
+        <div class="diff-item">
+          <h3>Long-term relationships</h3>
+          <p>Some assistants and clients have been together since 2018. We optimize for fit that lasts, not quick fills.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="story">
+    <div class="container story-grid">
+      <div class="story-content">
+        <div class="section-label">Our Story</div>
+        <h2>Built on listening first, then matching with care</h2>
+        <p>George started with a small call center in the Philippines in 2014 and formed EWC in 2018. Before that he was a nurse in the US — working in psychiatric care, nursing homes, and hospice.</p>
+        <p>That background shapes how we work: listen first, understand the person and the work, then match with care. Caroline, who is Filipina, helps bridge culture and language so small misunderstandings do not become big ones.</p>
+        <div class="story-highlight">
+          <p>If the fit is not right, tell us at any time. We find you a replacement within 7 days. Our clients stay because we work on trust — and some have been with us for over five years.</p>
+        </div>
+      </div>
+      <div>
+        <div style="background:var(--white);border-radius:16px;padding:40px;box-shadow:var(--shadow-lg);border:1px solid var(--border);">
+          <h3 style="font-size:1.3rem;color:var(--primary-dark);margin-bottom:20px;">What you can expect</h3>
+          <ul style="list-style:none;display:flex;flex-direction:column;gap:16px;">
+            <li style="display:flex;gap:12px;align-items:flex-start;">
+              <span>Your assistant works through EWC. We handle payroll; you direct the daily work.</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;">
+              <span>Communication stays simple: email + Google Meet or Zoom. Use the tools you already have.</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;">
+              <span>We do not train the assistants. We source and match the best-fit person, then verify setup and references.</span>
+            </li>
+            <li style="display:flex;gap:12px;align-items:flex-start;">
+              <span>Specialist skills (e.g. AutoCAD) may be priced slightly higher — always agreed before you start.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">Simple Pricing</div>
+        <h2 class="section-title">One clear rate. No surprises.</h2>
+        <p class="section-sub">Transparent, predictable, and built for long-term partnerships.</p>
+      </div>
+      <div class="pricing-card">
+        <div class="section-label">Flat Client Rate</div>
+        <div class="price">$10<span>/hr</span></div>
+        <p style="color:var(--text-muted);margin-bottom:8px;">Invoiced for total hours — biweekly or monthly</p>
+        <ul class="pricing-features">
+          <li>Hand-matched virtual assistant from the Philippines</li>
+          <li>Live video verification of workstation & credentials</li>
+          <li>Payroll & employment handled by EWC</li>
+          <li>Ongoing support from George & Caroline</li>
+          <li>7-day replacement if the fit isn’t right</li>
+        </ul>
+        <a href="https://calendly.com/ewcvirtueassist/30min" class="btn btn-primary" style="width:100%;" target="_blank" rel="noopener">Book Your Free Intro Call</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq" id="faq">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">Common Questions</div>
+        <h2 class="section-title">Everything you need to know</h2>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Who does the assistant work for?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Your assistant works through EWC Virtue Assist. We handle payroll and the employment side, and you direct the daily work.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What does it cost?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            A flat $10/hr. Roles that need specialist skills, such as executive assistance with AutoCAD, may be set slightly higher and we agree on it before you start.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do I pay?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            We invoice for total hours, biweekly or monthly depending on your preference.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Do you train the assistants?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            We do not. We source and match the best-fit person, then verify their setup and references before placement.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How do we communicate?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Keep it simple. We talk by email and meet face to face on Google Meet or Zoom, whichever you already use. Your assistant joins the same way, so there is nothing new to learn and no extra software to buy. You can also use the tools you already work in, like Slack or your project software, and we will set it up together.
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What if the fit isn’t right?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Tell us at any time. We find you a replacement within 7 days. Our clients stay because we work on trust, and some have been with us for over five years.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2>Let us find your person.</h2>
+      <p>Send a few lines about the work you want off your plate, or book a short call. We’ll reply with clear next steps.</p>
+      <div class="final-ctas">
+        <a href="https://calendly.com/ewcvirtueassist/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Free Intro Call</a>
+        <a href="mailto:ewcvirtueassist@gmail.com?subject=I%20need%20a%20virtual%20assistant" class="btn btn-outline">Email George & Caroline</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">EWC Virtue Assist</div>
+          <p>Virtual assistants from the Philippines,<br>managed with an American eye.</p>
+        </div>
+        <div class="footer-links">
+          <a href="https://calendly.com/ewcvirtueassist/30min" target="_blank" rel="noopener">Book a Call</a>
+          <a href="mailto:ewcvirtueassist@gmail.com">Email Us</a>
+          <a href="https://www.facebook.com/EWCVirtueAssist" target="_blank" rel="noopener">Facebook</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2026 EWC Virtue Assist. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(el => el.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+  </script>
+</body>
+</html>
