@@ -5,9 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>EWC Virtue Assist | Hand-Matched Virtual Assistants from the Philippines</title>
   <meta name="description" content="One carefully matched virtual assistant from the Philippines, managed with an American eye. Flat $10/hr. 6–10 day search. 7-day replacement guarantee." />
+  
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  
   <style>
     :root {
       --primary: #0A1F44;
@@ -36,7 +38,13 @@
     }
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; height: auto; display: block; }
-    .container { width: 100%; max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    .container {
+      width: 100%;
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
 
     /* Header */
     header {
@@ -57,9 +65,10 @@
     nav a:hover { color: var(--primary); }
 
     .btn {
-      display: inline-flex; align-items: center; justify-content: center;
+      display: inline-flex; align-items: center; justify-content: center; gap: 8px;
       padding: 14px 28px; font-weight: 600; font-size: 1rem;
       border-radius: 8px; border: none; cursor: pointer; transition: all 0.2s;
+      text-align: center;
     }
     .btn-primary {
       background: var(--accent); color: var(--primary-dark);
@@ -71,40 +80,68 @@
       border: 2px solid rgba(255,255,255,0.75);
     }
     .btn-outline:hover { background: white; color: var(--primary); }
+    .btn-secondary {
+      background: white; color: var(--primary);
+      border: 2px solid var(--primary);
+    }
+    .btn-secondary:hover { background: var(--primary); color: white; }
     .btn-sm { padding: 10px 20px; font-size: 0.9rem; }
 
     /* Hero */
     .hero {
       background: linear-gradient(160deg, #0A1F44 0%, #122a5c 50%, #06152e 100%);
-      color: white; padding: 80px 0 90px; position: relative; overflow: hidden;
+      color: white;
+      padding: 88px 0 96px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -20%; right: -10%;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(201,162,39,0.12) 0%, transparent 70%);
+      pointer-events: none;
     }
     .hero-grid {
-      display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 50px; align-items: center;
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
     }
     .hero-badge {
-      display: inline-flex; align-items: center;
-      background: rgba(201, 162, 39, 0.15); border: 1px solid rgba(201, 162, 39, 0.35);
-      padding: 6px 14px; border-radius: 50px; font-size: 0.85rem; margin-bottom: 24px;
-      color: #e8d48b;
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.18);
+      padding: 6px 14px; border-radius: 50px;
+      font-size: 0.85rem; font-weight: 500; margin-bottom: 24px;
     }
     .hero h1 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2.3rem, 4.8vw, 3.3rem); font-weight: 700;
-      line-height: 1.18; margin-bottom: 20px;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      font-weight: 700; line-height: 1.15;
+      letter-spacing: -0.02em; margin-bottom: 20px;
     }
     .hero h1 .highlight { color: var(--accent); }
     .hero-sub {
-      font-size: 1.15rem; opacity: 0.92; max-width: 520px; margin-bottom: 32px; line-height: 1.55;
+      font-size: 1.18rem; opacity: 0.92; max-width: 520px;
+      margin-bottom: 32px; line-height: 1.55;
     }
     .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
-    .hero-guarantee { font-size: 0.95rem; opacity: 0.9; }
+    .hero-guarantee {
+      font-size: 0.95rem; opacity: 0.9;
+      display: flex; align-items: center; gap: 8px;
+    }
     .hero-stats {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius); padding: 26px 16px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius); padding: 28px 18px;
     }
     .stat { text-align: center; }
-    .stat-value { font-size: 1.7rem; font-weight: 800; color: var(--accent); }
+    .stat-value { font-size: 1.75rem; font-weight: 800; color: var(--accent); line-height: 1.2; }
     .stat-label { font-size: 0.82rem; opacity: 0.85; margin-top: 4px; }
 
     /* Trust bar */
@@ -112,11 +149,13 @@
       background: white; border-bottom: 1px solid var(--border); padding: 18px 0;
     }
     .trust-bar-inner {
-      display: flex; flex-wrap: wrap; justify-content: center; gap: 28px;
+      display: flex; flex-wrap: wrap; justify-content: center; gap: 32px;
       font-size: 0.9rem; color: var(--text-muted); font-weight: 500;
     }
+    .trust-item { display: flex; align-items: center; gap: 8px; }
+    .trust-item svg { color: #2d6a4f; flex-shrink: 0; }
 
-    /* Sections */
+    /* Sections common */
     section { padding: 80px 0; }
     .section-label {
       display: inline-block; font-size: 0.8rem; font-weight: 700;
@@ -124,7 +163,7 @@
     }
     .section-title {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 4vw, 2.5rem); font-weight: 700;
+      font-size: clamp(1.9rem, 4vw, 2.55rem); font-weight: 700;
       line-height: 1.2; margin-bottom: 16px; color: var(--primary);
     }
     .section-sub {
@@ -162,7 +201,39 @@
     .step h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--primary); }
     .step p { font-size: 0.93rem; color: var(--text-muted); }
 
-    /* Proof / Testimonials */
+    /* Who it's for */
+    .who { background: white; }
+    .who-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .who-card {
+      border: 1px solid var(--border); border-radius: var(--radius); padding: 36px;
+      background: var(--bg);
+    }
+    .who-card h3 {
+      font-size: 1.25rem; font-weight: 700; color: var(--primary); margin-bottom: 16px;
+    }
+    .who-card ul { list-style: none; }
+    .who-card li {
+      padding: 8px 0; padding-left: 28px; position: relative; color: var(--text-muted);
+    }
+    .who-card li::before {
+      content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700;
+    }
+
+    /* Story / About */
+    .story { background: var(--bg-alt); }
+    .story-grid {
+      display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center;
+    }
+    .story-photo {
+      border-radius: 16px; overflow: hidden; box-shadow: var(--shadow-lg);
+    }
+    .story-photo img { width: 100%; height: auto; display: block; }
+    .story-content .section-title { margin-bottom: 20px; }
+    .story-content p {
+      color: var(--text-muted); margin-bottom: 16px; font-size: 1.05rem; line-height: 1.65;
+    }
+
+    /* Testimonials */
     .proof { background: white; }
     .testimonials { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .testimonial {
@@ -172,22 +243,22 @@
     .testimonial::before {
       content: '"';
       font-family: 'Playfair Display', serif;
-      font-size: 4.5rem; color: var(--accent); opacity: 0.25;
-      position: absolute; top: 6px; left: 18px; line-height: 1;
+      font-size: 4.5rem; color: var(--accent); opacity: 0.2;
+      position: absolute; top: 8px; left: 20px; line-height: 1;
     }
     .testimonial-body {
-      position: relative; z-index: 1; font-size: 1.05rem;
-      color: var(--text); margin-bottom: 22px; line-height: 1.65;
+      position: relative; z-index: 1;
+      font-size: 1.05rem; color: var(--text); margin-bottom: 24px; line-height: 1.65;
     }
     .testimonial-author { display: flex; align-items: center; gap: 14px; }
     .author-avatar {
-      width: 46px; height: 46px; border-radius: 50%;
+      width: 48px; height: 48px; border-radius: 50%;
       background: var(--primary); color: white;
       display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 1rem; flex-shrink: 0;
+      font-weight: 700; font-size: 1.1rem; flex-shrink: 0;
     }
     .author-info strong { display: block; font-weight: 600; color: var(--primary); }
-    .author-info span { font-size: 0.88rem; color: var(--text-muted); }
+    .author-info span { font-size: 0.9rem; color: var(--text-muted); }
 
     /* Difference */
     .difference {
@@ -198,90 +269,75 @@
     .difference .section-sub { color: rgba(255,255,255,0.85); }
     .diff-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
     .diff-item {
-      background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12);
-      border-radius: var(--radius); padding: 26px 22px;
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: var(--radius); padding: 28px 24px;
     }
     .diff-item h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; color: var(--accent); }
     .diff-item p { font-size: 0.95rem; opacity: 0.9; line-height: 1.55; }
 
-    /* Story */
-    .story { background: var(--bg); }
-    .story-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
-    .story-photo {
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: var(--shadow-lg);
-    }
-    .story-photo img {
-      width: 100%;
-      height: auto;
-      display: block;
-    }
-    .story-content h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.8rem, 3.5vw, 2.3rem); color: var(--primary); margin-bottom: 18px;
-    }
-    .story-content p { color: var(--text-muted); margin-bottom: 14px; font-size: 1.05rem; }
-    .story-highlight {
-      background: white; border-left: 4px solid var(--accent);
-      padding: 18px 22px; border-radius: 0 var(--radius) var(--radius) 0; margin-top: 22px;
-    }
-    .story-highlight p { margin: 0; font-weight: 500; color: var(--text); }
-
     /* Pricing */
     .pricing { background: white; }
     .pricing-card {
-      max-width: 620px; margin: 0 auto; background: var(--bg);
-      border: 2px solid var(--primary); border-radius: 16px;
-      padding: 44px 36px; text-align: center; box-shadow: var(--shadow-lg);
+      max-width: 480px; margin: 0 auto;
+      background: var(--bg); border: 1px solid var(--border);
+      border-radius: 16px; padding: 40px; text-align: center;
+      box-shadow: var(--shadow);
     }
-    .price {
-      font-size: 3.4rem; font-weight: 800; color: var(--primary); line-height: 1; margin: 14px 0 6px;
+    .pricing-card .price {
+      font-size: 3rem; font-weight: 800; color: var(--primary); line-height: 1;
+      margin: 12px 0 8px;
     }
-    .price span { font-size: 1.25rem; font-weight: 600; color: var(--text-muted); }
-    .pricing-features { list-style: none; margin: 28px 0; text-align: left; }
+    .pricing-card .price span { font-size: 1.2rem; font-weight: 600; color: var(--text-muted); }
+    .pricing-features {
+      list-style: none; text-align: left; margin: 28px 0;
+    }
     .pricing-features li {
-      padding: 11px 0; border-bottom: 1px solid var(--border); font-size: 1.02rem;
+      padding: 10px 0; padding-left: 28px; position: relative;
+      color: var(--text-muted); border-bottom: 1px solid var(--border);
     }
     .pricing-features li:last-child { border-bottom: none; }
+    .pricing-features li::before {
+      content: '✓'; position: absolute; left: 0; color: var(--accent); font-weight: 700;
+    }
 
     /* FAQ */
     .faq { background: var(--bg-alt); }
-    .faq-list { max-width: 740px; margin: 0 auto; }
+    .faq-list { max-width: 720px; margin: 0 auto; }
     .faq-item {
       background: white; border: 1px solid var(--border);
       border-radius: var(--radius); margin-bottom: 12px; overflow: hidden;
     }
     .faq-question {
-      width: 100%; padding: 18px 22px; background: none; border: none;
-      text-align: left; font-size: 1.08rem; font-weight: 600; color: var(--primary);
-      cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 16px;
+      width: 100%; background: none; border: none; padding: 20px 24px;
+      font-size: 1.05rem; font-weight: 600; color: var(--primary);
+      text-align: left; cursor: pointer; display: flex; justify-content: space-between; align-items: center;
+      font-family: inherit;
     }
-    .faq-question:hover { background: var(--bg); }
-    .faq-icon { font-size: 1.35rem; color: var(--accent); transition: transform 0.2s; }
+    .faq-icon { font-size: 1.3rem; color: var(--accent); transition: transform 0.2s; }
     .faq-item.open .faq-icon { transform: rotate(45deg); }
     .faq-answer {
-      display: none; padding: 0 22px 18px; color: var(--text-muted); font-size: 1rem; line-height: 1.6;
+      display: none; padding: 0 24px 20px; color: var(--text-muted); line-height: 1.6;
     }
     .faq-item.open .faq-answer { display: block; }
 
     /* Final CTA */
     .final-cta {
-      background: linear-gradient(160deg, #0A1F44 0%, #06152e 100%);
-      color: white; text-align: center; padding: 90px 0;
+      background: linear-gradient(160deg, #0A1F44 0%, #122a5c 50%, #06152e 100%);
+      color: white; text-align: center; padding: 88px 0;
     }
     .final-cta h2 {
       font-family: 'Playfair Display', serif;
-      font-size: clamp(2rem, 4vw, 2.7rem); margin-bottom: 16px;
+      font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 16px;
     }
     .final-cta p {
-      font-size: 1.15rem; opacity: 0.9; max-width: 540px; margin: 0 auto 36px;
+      font-size: 1.15rem; opacity: 0.9; max-width: 520px; margin: 0 auto 32px;
     }
-    .final-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+    .final-ctas { display: flex; flex-wrap: wrap; justify-content: center; gap: 14px; }
 
     /* Footer */
     footer {
-      background: #06152e; color: rgba(255,255,255,0.75); padding: 48px 0 32px; font-size: 0.95rem;
+      background: var(--primary-dark); color: rgba(255,255,255,0.85); padding: 48px 0 28px;
     }
     .footer-inner {
       display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; margin-bottom: 32px;
@@ -289,8 +345,10 @@
     .footer-brand {
       font-family: 'Playfair Display', serif; font-size: 1.3rem; color: white; margin-bottom: 8px;
     }
-    .footer-links { display: flex; gap: 24px; }
-    .footer-links a:hover { color: white; }
+    .footer-brand + p { font-size: 0.95rem; max-width: 260px; opacity: 0.8; }
+    .footer-links { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
+    .footer-links a { color: rgba(255,255,255,0.85); font-size: 0.95rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
     .footer-bottom {
       border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
       text-align: center; font-size: 0.85rem; opacity: 0.7;
@@ -299,7 +357,7 @@
     /* Responsive */
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-      .benefits-grid, .testimonials, .story-grid { grid-template-columns: 1fr; }
+      .benefits-grid, .testimonials, .who-grid, .story-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr 1fr; }
       .diff-grid { grid-template-columns: 1fr; }
       nav { display: none; }
@@ -307,78 +365,100 @@
     }
     @media (max-width: 600px) {
       .hero { padding: 60px 0 70px; }
-      .hero-stats { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr; }
-      .pricing-card { padding: 32px 22px; }
-      .price { font-size: 2.8rem; }
+      .hero-stats { grid-template-columns: 1fr; }
       section { padding: 60px 0; }
     }
   </style>
 </head>
 <body>
+
+  <!-- HEADER -->
   <header>
     <div class="container header-inner">
       <a href="/" class="logo">
-        <img src="EWC_Virtue_Assist_Logo.png" alt="EWC Virtue Assist">
+        <img src="EWC_Virtue_Assist_Logo.png" alt="EWC Virtue Assist" />
       </a>
       <nav>
         <a href="#how">How It Works</a>
-        <a href="#difference">Why Us</a>
-        <a href="#proof">Clients</a>
+        <a href="#why">Why Us</a>
+        <a href="#clients">Clients</a>
         <a href="#faq">FAQ</a>
         <a href="https://calendly.com/ewcvirtueassist/30min" class="btn btn-primary btn-sm" target="_blank" rel="noopener">Book Free Call</a>
       </nav>
     </div>
   </header>
 
+  <!-- HERO -->
   <section class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="hero-badge">Virtual assistants from the Philippines • Managed with an American eye</div>
-        <h1>A virtual assistant who fits <span class="highlight">your business</span>, not just your job post.</h1>
-        <p class="hero-sub">
-          We match each client with one hand-picked assistant and manage the relationship with cultural insight and real accountability. Some of our assistants have been with us since 2018.
-        </p>
-        <div class="hero-ctas">
-          <a href="https://calendly.com/ewcvirtueassist/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Free Intro Call</a>
-          <a href="mailto:ewcvirtueassist@gmail.com?subject=I%20need%20a%20virtual%20assistant" class="btn btn-outline">Tell Us What You Need</a>
+    <div class="container">
+      <div class="hero-grid">
+        <div>
+          <div class="hero-badge">
+            Virtual assistants from the Philippines • Managed with an American eye
+          </div>
+          <h1>A virtual assistant who <span class="highlight">fits your business</span>, not just your job post.</h1>
+          <p class="hero-sub">
+            We match each client with one hand-picked assistant and manage the relationship with cultural insight and real accountability. Some of our assistants have been with us since 2018.
+          </p>
+          <div class="hero-ctas">
+            <a href="https://calendly.com/ewcvirtueassist/30min" class="btn btn-primary" target="_blank" rel="noopener">Book a Free Intro Call</a>
+            <a href="mailto:ewcvirtueassist@gmail.com?subject=I%20need%20a%20virtual%20assistant" class="btn btn-outline">Tell Us What You Need</a>
+          </div>
+          <p class="hero-guarantee">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            <strong>7-day replacement guarantee</strong> if the fit isn’t right. No questions asked.
+          </p>
         </div>
-        <div class="hero-guarantee">
-          <strong>7-day replacement guarantee</strong> if the fit isn’t right. No questions asked.
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="stat">
-          <div class="stat-value">$10/hr</div>
-          <div class="stat-label">Flat client rate</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value">6–10</div>
-          <div class="stat-label">Days to match</div>
-        </div>
-        <div class="stat">
-          <div class="stat-value">7 days</div>
-          <div class="stat-label">Replacement if needed</div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-value">$10/hr</div>
+            <div class="stat-label">Flat client rate</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">6–10</div>
+            <div class="stat-label">Days to match</div>
+          </div>
+          <div class="stat">
+            <div class="stat-value">7 days</div>
+            <div class="stat-label">Replacement if needed</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- TRUST BAR -->
   <div class="trust-bar">
     <div class="container trust-bar-inner">
-      <div>Hand-matched, not algorithm-matched</div>
-      <div>Live video verification before placement</div>
-      <div>American leadership + Filipino insight</div>
-      <div>Clients with us 5+ years</div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        Hand-matched, not algorithm-matched
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        Live video verification before placement
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        American leadership + Filipino insight
+      </div>
+      <div class="trust-item">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+        Clients with us 5+ years
+      </div>
     </div>
   </div>
 
-  <section class="benefits" id="difference">
+  <!-- WHY -->
+  <section class="benefits" id="why">
     <div class="container">
       <div class="text-center">
         <div class="section-label">People First. Software Second.</div>
         <h2 class="section-title">Why businesses choose EWC Virtue Assist</h2>
-        <p class="section-sub">Plenty of agencies send you a stack of résumés. We pick one person for you — based on skill, experience, personality, and the working style you prefer.</p>
+        <p class="section-sub">
+          Plenty of agencies send you a stack of résumés. We pick one person for you — based on skill, experience, personality, and the working style you prefer.
+        </p>
       </div>
       <div class="benefits-grid">
         <div class="benefit-card">
@@ -401,6 +481,7 @@
     </div>
   </section>
 
+  <!-- PROCESS -->
   <section class="process" id="how">
     <div class="container">
       <div class="text-center">
@@ -433,7 +514,64 @@
     </div>
   </section>
 
-  <section class="proof" id="proof">
+  <!-- WHO IT'S FOR -->
+  <section class="who">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">Is this right for you?</div>
+        <h2 class="section-title">Who we work best with</h2>
+      </div>
+      <div class="who-grid">
+        <div class="who-card">
+          <h3>This is a great fit if you…</h3>
+          <ul>
+            <li>Want one dedicated assistant who becomes part of your team</li>
+            <li>Value long-term relationships over quick, temporary fills</li>
+            <li>Prefer clear, flat pricing with no surprises</li>
+            <li>Want someone who has been live-verified before you meet them</li>
+            <li>Appreciate cultural insight and active management of the relationship</li>
+          </ul>
+        </div>
+        <div class="who-card">
+          <h3>This may not be ideal if you…</h3>
+          <ul>
+            <li>Need a large rotating pool of freelancers</li>
+            <li>Want the absolute lowest possible hourly rate above all else</li>
+            <li>Prefer to manage everything yourself with no support</li>
+            <li>Are looking for same-day or 48-hour placement</li>
+            <li>Need highly specialized technical roles that require senior-level expertise</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="story">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-photo">
+          <img src="george-caroline.jpg" alt="George and Caroline – EWC Virtue Assist" />
+        </div>
+        <div class="story-content">
+          <div class="section-label">Our Story</div>
+          <h2 class="section-title">Built on listening first, then matching with care</h2>
+          <p>
+            George started with a small call center in the Philippines in 2014 and formed EWC in 2018. Before that he was a nurse in the US — working in psychiatric care, nursing homes, and hospice.
+          </p>
+          <p>
+            That background shapes how we work: listen first, understand the person and the work, then match with care. Caroline, who is Filipina, helps bridge culture and language so small misunderstandings do not become big ones.
+          </p>
+          <p>
+            If the fit is not right, tell us at any time. We find you a replacement within 7 days. Our clients stay because we work on trust — and some have been with us for over five years.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="proof" id="clients">
     <div class="container">
       <div class="text-center">
         <div class="section-label">Trusted by Growing Businesses</div>
@@ -442,26 +580,22 @@
       </div>
       <div class="testimonials">
         <div class="testimonial">
-          <div class="testimonial-body">
-            “Your assistants have been instrumental to our business, and you’ve been a trusted partner for years.”
-          </div>
+          <p class="testimonial-body">Your assistants have been instrumental to our business, and you’ve been a trusted partner for years.</p>
           <div class="testimonial-author">
-            <div class="author-avatar">HO</div>
+            <div class="author-avatar">D</div>
             <div class="author-info">
-              <strong>Head of Operations</strong>
-              <span>Professional services firm</span>
+              <strong>Demetrios</strong>
+              <span>Head of Operations · Professional services firm</span>
             </div>
           </div>
         </div>
         <div class="testimonial">
-          <div class="testimonial-body">
-            “I tell colleagues how much your assistants have helped us, and I’m happy to introduce them.”
-          </div>
+          <p class="testimonial-body">I tell colleagues how much your assistants have helped us, and I’m happy to introduce them.</p>
           <div class="testimonial-author">
-            <div class="author-avatar">MD</div>
+            <div class="author-avatar">L</div>
             <div class="author-info">
-              <strong>Marketing Director</strong>
-              <span>Professional services firm</span>
+              <strong>Liset</strong>
+              <span>Marketing Director · Professional services firm</span>
             </div>
           </div>
         </div>
@@ -469,10 +603,11 @@
     </div>
   </section>
 
+  <!-- DIFFERENCE -->
   <section class="difference">
     <div class="container">
       <div class="text-center">
-        <div class="section-label" style="color:var(--accent);">The EWC Difference</div>
+        <div class="section-label" style="color: var(--accent);">The EWC Difference</div>
         <h2 class="section-title">What sets us apart from typical VA agencies</h2>
         <p class="section-sub">Reasons clients stay with us for years instead of cycling through freelancers.</p>
       </div>
@@ -505,24 +640,8 @@
     </div>
   </section>
 
-  <section class="story">
-    <div class="container story-grid">
-      <div class="story-content">
-        <div class="section-label">Our Story</div>
-        <h2>Built on listening first, then matching with care</h2>
-        <p>George started with a small call center in the Philippines in 2014 and formed EWC in 2018. Before that he was a nurse in the US — working in psychiatric care, nursing homes, and hospice.</p>
-        <p>That background shapes how we work: listen first, understand the person and the work, then match with care. Caroline, who is Filipina, helps bridge culture and language so small misunderstandings do not become big ones.</p>
-        <div class="story-highlight">
-          <p>If the fit is not right, tell us at any time. We find you a replacement within 7 days. Our clients stay because we work on trust — and some have been with us for over five years.</p>
-        </div>
-      </div>
-      <div class="story-photo">
-        <img src="george-caroline.jpg" alt="George and Caroline – EWC Virtue Assist">
-      </div>
-    </div>
-  </section>
-
-  <section class="pricing" id="pricing">
+  <!-- PRICING -->
+  <section class="pricing">
     <div class="container">
       <div class="text-center">
         <div class="section-label">Simple Pricing</div>
@@ -530,9 +649,9 @@
         <p class="section-sub">Transparent, predictable, and built for long-term partnerships.</p>
       </div>
       <div class="pricing-card">
-        <div class="section-label">Flat Client Rate</div>
-        <div class="price">$10<span>/hr</span></div>
-        <p style="color:var(--text-muted);margin-bottom:6px;">Invoiced for total hours — biweekly or monthly</p>
+        <div class="section-label" style="margin-bottom: 4px;">Flat Client Rate</div>
+        <div class="price">$10 <span>/hr</span></div>
+        <p style="color: var(--text-muted); margin-bottom: 8px;">Invoiced for total hours — biweekly or monthly</p>
         <ul class="pricing-features">
           <li>Hand-matched virtual assistant from the Philippines</li>
           <li>Live video verification of workstation & credentials</li>
@@ -540,11 +659,12 @@
           <li>Ongoing support from George & Caroline</li>
           <li>7-day replacement if the fit isn’t right</li>
         </ul>
-        <a href="https://calendly.com/ewcvirtueassist/30min" class="btn btn-primary" style="width:100%;" target="_blank" rel="noopener">Book Your Free Intro Call</a>
+        <a href="https://calendly.com/ewcvirtueassist/30min" class="btn btn-primary" target="_blank" rel="noopener" style="width: 100%;">Book Your Free Intro Call</a>
       </div>
     </div>
   </section>
 
+  <!-- FAQ -->
   <section class="faq" id="faq">
     <div class="container">
       <div class="text-center">
@@ -598,6 +718,7 @@
     </div>
   </section>
 
+  <!-- FINAL CTA -->
   <section class="final-cta">
     <div class="container">
       <h2>Let us find your person.</h2>
@@ -609,6 +730,7 @@
     </div>
   </section>
 
+  <!-- FOOTER -->
   <footer>
     <div class="container">
       <div class="footer-inner">
@@ -617,11 +739,10 @@
           <p>Virtual assistants from the Philippines,<br>managed with an American eye.</p>
         </div>
         <div class="footer-links">
-  <a href="https://calendly.com/ewcvirtueassist/30min" target="_blank" rel="noopener">Book a Call</a>
-  <a href="mailto:ewcvirtueassist@gmail.com">Email Us</a>
-  <a href="https://www.facebook.com/EWCVirtueAssist" target="_blank" rel="noopener">Facebook</a>
-  <a href="https://both-sides-of-the-hire.pages.dev" target="_blank" rel="noopener">Join as a VA</a>
-</div>
+          <a href="https://calendly.com/ewcvirtueassist/30min" target="_blank" rel="noopener">Book a Call</a>
+          <a href="mailto:ewcvirtueassist@gmail.com">Email Us</a>
+          <a href="https://www.facebook.com/EWCVirtueAssist" target="_blank" rel="noopener">Facebook</a>
+          <a href="https://both-sides-of-the-hire.pages.dev" target="_blank" rel="noopener">Join as a VA</a>
         </div>
       </div>
       <div class="footer-bottom">
