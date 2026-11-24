@@ -8,20 +8,22 @@
   
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   
   <style>
     :root {
-      --primary: #0A1F44;
-      --primary-dark: #06152e;
-      --accent: #C9A227;
-      --accent-hover: #b08e1f;
-      --bg: #f8f9fb;
-      --bg-alt: #eef1f6;
-      --text: #1a1a1a;
-      --text-muted: #5a6472;
-      --white: #ffffff;
-      --border: #e2e6ed;
+      /* Brand palette sampled from the YouTube banner */
+      --primary: #0A1F44;        /* navy */
+      --primary-dark: #0A1F44;
+      --accent: #B8901A;         /* gold */
+      --accent-hover: #9A7815;
+      --slate: #2E405F;          /* banner secondary text */
+      --bg: #FFFFFF;
+      --bg-alt: #F4F6FA;
+      --text: #0A1F44;
+      --text-muted: #2E405F;
+      --white: #FFFFFF;
+      --border: #E2E6ED;
       --radius: 12px;
       --shadow: 0 4px 24px rgba(10, 31, 68, 0.08);
       --shadow-lg: 0 12px 40px rgba(10, 31, 68, 0.12);
@@ -72,14 +74,16 @@
     }
     .btn-primary {
       background: var(--accent); color: var(--primary-dark);
-      box-shadow: 0 4px 14px rgba(201, 162, 39, 0.35);
+      box-shadow: 0 4px 14px rgba(184, 144, 26, 0.30);
     }
     .btn-primary:hover { background: var(--accent-hover); transform: translateY(-1px); }
     .btn-outline {
-      background: transparent; color: white;
-      border: 2px solid rgba(255,255,255,0.75);
+      background: transparent; color: var(--primary);
+      border: 2px solid var(--primary);
     }
-    .btn-outline:hover { background: white; color: var(--primary); }
+    .btn-outline:hover { background: var(--primary); color: white; }
+    .final-cta .btn-outline { color: white; border-color: rgba(255,255,255,0.75); }
+    .final-cta .btn-outline:hover { background: white; color: var(--primary); }
     .btn-secondary {
       background: white; color: var(--primary);
       border: 2px solid var(--primary);
@@ -89,19 +93,17 @@
 
     /* Hero */
     .hero {
-      background: linear-gradient(160deg, #0A1F44 0%, #122a5c 50%, #06152e 100%);
-      color: white;
+      background: #FFFFFF;
+      color: var(--primary);
       padding: 88px 0 96px;
       position: relative;
       overflow: hidden;
+      border-bottom: 1px solid var(--border);
     }
     .hero::before {
       content: '';
-      position: absolute;
-      top: -20%; right: -10%;
-      width: 600px; height: 600px;
-      background: radial-gradient(circle, rgba(201,162,39,0.12) 0%, transparent 70%);
-      pointer-events: none;
+      position: absolute; top: 0; left: 0; bottom: 0; width: 14px;
+      background: var(--primary);
     }
     .hero-grid {
       display: grid;
@@ -112,33 +114,35 @@
       z-index: 1;
     }
     .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(255,255,255,0.1);
-      border: 1px solid rgba(255,255,255,0.18);
-      padding: 6px 14px; border-radius: 50px;
-      font-size: 0.85rem; font-weight: 500; margin-bottom: 24px;
+      display: inline-block; color: var(--accent);
+      font-size: 0.82rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; margin-bottom: 20px;
     }
     .hero h1 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', system-ui, sans-serif;
       font-size: clamp(2.4rem, 5vw, 3.4rem);
-      font-weight: 700; line-height: 1.15;
-      letter-spacing: -0.02em; margin-bottom: 20px;
+      font-weight: 800; line-height: 1.1;
+      letter-spacing: -0.03em; margin-bottom: 0; color: var(--primary);
+    }
+    .hero h1::after {
+      content: ''; display: block; width: 64px; height: 4px;
+      background: var(--accent); margin: 22px 0 22px;
     }
     .hero h1 .highlight { color: var(--accent); }
     .hero-sub {
-      font-size: 1.18rem; opacity: 0.92; max-width: 520px;
+      font-size: 1.18rem; color: var(--slate); max-width: 520px;
       margin-bottom: 32px; line-height: 1.55;
     }
     .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; }
     .hero-guarantee {
-      font-size: 0.95rem; opacity: 0.9;
+      font-size: 0.95rem; color: var(--slate);
       display: flex; align-items: center; gap: 8px;
     }
     .hero-stats {
       display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid rgba(255,255,255,0.12);
+      background: var(--primary); color: white;
       border-radius: var(--radius); padding: 28px 18px;
+      box-shadow: var(--shadow-lg);
     }
     .stat { text-align: center; }
     .stat-value { font-size: 1.75rem; font-weight: 800; color: var(--accent); line-height: 1.2; }
@@ -153,7 +157,7 @@
       font-size: 0.9rem; color: var(--text-muted); font-weight: 500;
     }
     .trust-item { display: flex; align-items: center; gap: 8px; }
-    .trust-item svg { color: #2d6a4f; flex-shrink: 0; }
+    .trust-item svg { color: var(--accent); flex-shrink: 0; }
 
     /* Sections common */
     section { padding: 80px 0; }
@@ -162,9 +166,9 @@
       letter-spacing: 0.08em; text-transform: uppercase; color: var(--accent); margin-bottom: 12px;
     }
     .section-title {
-      font-family: 'Playfair Display', serif;
-      font-size: clamp(1.9rem, 4vw, 2.55rem); font-weight: 700;
-      line-height: 1.2; margin-bottom: 16px; color: var(--primary);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: clamp(1.9rem, 4vw, 2.55rem); font-weight: 800;
+      line-height: 1.15; letter-spacing: -0.025em; margin-bottom: 16px; color: var(--primary);
     }
     .section-sub {
       font-size: 1.12rem; color: var(--text-muted); max-width: 640px; margin-bottom: 48px;
@@ -185,6 +189,23 @@
       font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; color: var(--primary);
     }
     .benefit-card p { color: var(--text-muted); font-size: 1rem; }
+
+    /* Pain points */
+    .concerns { background: var(--bg-alt); }
+    .concerns-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .concern-card {
+      background: white; border: 1px solid var(--border);
+      border-top: 4px solid var(--accent);
+      border-radius: var(--radius); padding: 28px;
+      box-shadow: var(--shadow);
+    }
+    .concern-q {
+      font-size: 1.12rem; font-weight: 800; line-height: 1.3;
+      color: var(--primary); margin-bottom: 12px; letter-spacing: -0.01em;
+    }
+    .concern-a { font-size: 0.98rem; color: var(--text-muted); line-height: 1.6; }
+    .concern-a strong { color: var(--primary); }
+    .concerns-cta { text-align: center; margin-top: 40px; }
 
     /* Process */
     .process { background: var(--bg-alt); }
@@ -242,8 +263,8 @@
     }
     .testimonial::before {
       content: '"';
-      font-family: 'Playfair Display', serif;
-      font-size: 4.5rem; color: var(--accent); opacity: 0.2;
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 800;
+      font-size: 4.5rem; color: var(--accent); opacity: 0.25;
       position: absolute; top: 8px; left: 20px; line-height: 1;
     }
     .testimonial-body {
@@ -262,7 +283,7 @@
 
     /* Difference */
     .difference {
-      background: linear-gradient(160deg, #0A1F44 0%, #06152e 100%);
+      background: var(--primary);
       color: white;
     }
     .difference .section-title { color: white; }
@@ -323,11 +344,11 @@
 
     /* Final CTA */
     .final-cta {
-      background: linear-gradient(160deg, #0A1F44 0%, #122a5c 50%, #06152e 100%);
+      background: var(--primary);
       color: white; text-align: center; padding: 88px 0;
     }
     .final-cta h2 {
-      font-family: 'Playfair Display', serif;
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 800; letter-spacing: -0.025em;
       font-size: clamp(2rem, 4vw, 2.8rem); margin-bottom: 16px;
     }
     .final-cta p {
@@ -343,7 +364,7 @@
       display: flex; flex-wrap: wrap; justify-content: space-between; gap: 32px; margin-bottom: 32px;
     }
     .footer-brand {
-      font-family: 'Playfair Display', serif; font-size: 1.3rem; color: white; margin-bottom: 8px;
+      font-family: 'Inter', system-ui, sans-serif; font-weight: 800; font-size: 1.3rem; color: white; margin-bottom: 8px;
     }
     .footer-brand + p { font-size: 0.95rem; max-width: 260px; opacity: 0.8; }
     .footer-links { display: flex; flex-wrap: wrap; gap: 24px; align-items: center; }
@@ -357,7 +378,7 @@
     /* Responsive */
     @media (max-width: 900px) {
       .hero-grid { grid-template-columns: 1fr; gap: 40px; }
-      .benefits-grid, .testimonials, .who-grid, .story-grid { grid-template-columns: 1fr; }
+      .benefits-grid, .testimonials, .who-grid, .story-grid, .concerns-grid { grid-template-columns: 1fr; }
       .process-steps { grid-template-columns: 1fr 1fr; }
       .diff-grid { grid-template-columns: 1fr; }
       nav { display: none; }
@@ -365,6 +386,7 @@
     }
     @media (max-width: 600px) {
       .hero { padding: 60px 0 70px; }
+      .hero::before { width: 8px; }
       .process-steps { grid-template-columns: 1fr; }
       .hero-stats { grid-template-columns: 1fr; }
       section { padding: 60px 0; }
@@ -462,6 +484,62 @@
               "@type": "Answer",
               "text": "We match dedicated Filipino virtual assistants for executive administration, email and calendar management, bookkeeping and billing (QuickBooks and Xero), customer service, data entry, AutoCAD technical drafting, real estate transaction coordination, social media management, and AI operations support."
             }
+          },
+          {
+            "@type": "Question",
+            "name": "Will I get one dedicated assistant, or a shared pool?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "One dedicated person. You get one assistant who becomes part of your team, not a rotating pool of freelancers."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I choose a male or female assistant?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We weigh skill level, experience, personality, and your preference for a male or female assistant when we match you."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is this different from hiring a freelancer myself?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Hiring alone means doing the search, the vetting, the payroll, and any replacement yourself. With EWC Virtue Assist we do the search, verify the person live on video, run payroll and the employment side, and replace the assistant within 7 days if the fit is not right. You direct the daily work."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Are there placement fees or hidden costs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. The rate is a flat $10/hr, invoiced for total hours, with no hidden fees."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How quickly can my assistant start?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most custom matches take 6 to 10 days because we search, interview, and verify before you hear a name. If you need someone the same day or within 48 hours, we are probably not the right fit."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What about cultural or communication misunderstandings?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "George (American, living in the Philippines since 2010) and Caroline (Filipina) handle sensitive cultural and language moments so small issues never become big ones."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can you place a senior specialist, like a CPA or licensed engineer?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "That is not our sweet spot. We place assistants for bookkeeping and billing, executive administration, AutoCAD technical drafting, real estate transaction coordination, customer service, data entry, social media, and AI operations. If you need a licensed specialist, we will tell you honestly."
+            }
           }
         ]
       }
@@ -479,6 +557,7 @@
         <img src="EWC_Virtue_Assist_Logo.png" alt="EWC Virtue Assist" />
       </a>
       <nav>
+        <a href="#concerns">Common Concerns</a>
         <a href="#how">How It Works</a>
         <a href="#why">Why Us</a>
         <a href="#clients">Clients</a>
@@ -552,6 +631,48 @@
       </div>
     </div>
   </div>
+
+  <!-- COMMON CONCERNS (pain points) -->
+  <section class="concerns" id="concerns">
+    <div class="container">
+      <div class="text-center">
+        <div class="section-label">Honest Talk</div>
+        <h2 class="section-title">The worries we hear before every first call</h2>
+        <p class="section-sub">
+          Hiring a Filipino virtual assistant is a big step. These are the concerns business owners raise most, and what we do about each one.
+        </p>
+      </div>
+      <div class="concerns-grid">
+        <div class="concern-card">
+          <h3 class="concern-q">“Will their English be good enough for my clients?”</h3>
+          <p class="concern-a">George meets every candidate one on one on a live video call of about an hour. We test <strong>spoken and written English</strong> before you ever hear a name.</p>
+        </div>
+        <div class="concern-card">
+          <h3 class="concern-q">“Is my business data safe?”</h3>
+          <p class="concern-a">Each assistant works from a <strong>private, non-shared workspace</strong> on a Windows 11 Pro computer with BitLocker encryption, and signs a confidentiality agreement. We confirm the setup live on a screen share.</p>
+        </div>
+        <div class="concern-card">
+          <h3 class="concern-q">“What if their internet or power goes down?”</h3>
+          <p class="concern-a">We check <strong>internet speed and backup power</strong> on the live video session before placement. If outages become a pattern, we replace the assistant.</p>
+        </div>
+        <div class="concern-card">
+          <h3 class="concern-q">“Will they be online when I need them?”</h3>
+          <p class="concern-a">Tell us your hours. Assistants can work <strong>US business hours or other times</strong>, wherever you are in the world. We settle the schedule on the intro call.</p>
+        </div>
+        <div class="concern-card">
+          <h3 class="concern-q">“What about cultural and language misunderstandings?”</h3>
+          <p class="concern-a">George (American, in the Philippines since 2010) and Caroline (Filipina) <strong>handle the sensitive moments</strong>, so small misunderstandings never turn into big problems.</p>
+        </div>
+        <div class="concern-card">
+          <h3 class="concern-q">“What if it just isn’t a good fit?”</h3>
+          <p class="concern-a">Tell us at any time. We find you a replacement <strong>within 7 days</strong>. Hiring alone means doing the search, vetting, payroll, and replacement yourself. Here we handle it for one flat $10/hr, with no hidden fees.</p>
+        </div>
+      </div>
+      <div class="concerns-cta">
+        <a href="https://calendly.com/ewcvirtueassist/30min" class="btn btn-primary" target="_blank" rel="noopener">Ask Us Your Questions on a Free Call</a>
+      </div>
+    </div>
+  </section>
 
   <!-- WHY -->
   <section class="benefits" id="why">
@@ -888,6 +1009,55 @@
         </button>
         <div class="faq-answer">We match dedicated Filipino virtual assistants for executive administration, email and calendar management, bookkeeping and billing (QuickBooks and Xero), customer service, data entry, AutoCAD technical drafting, real estate transaction coordination, social media management, and AI operations support.</div>
       </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Will I get one dedicated assistant, or a shared pool?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">One dedicated person. You get one assistant who becomes part of your team, not a rotating pool of freelancers.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I choose a male or female assistant?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Yes. We weigh skill level, experience, personality, and your preference for a male or female assistant when we match you.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How is this different from hiring a freelancer myself?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Hiring alone means doing the search, the vetting, the payroll, and any replacement yourself. With EWC Virtue Assist we do the search, verify the person live on video, run payroll and the employment side, and replace the assistant within 7 days if the fit is not right. You direct the daily work.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Are there placement fees or hidden costs?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">No. The rate is a flat $10/hr, invoiced for total hours, with no hidden fees.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How quickly can my assistant start?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">Most custom matches take 6 to 10 days because we search, interview, and verify before you hear a name. If you need someone the same day or within 48 hours, we are probably not the right fit.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What about cultural or communication misunderstandings?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">George (American, living in the Philippines since 2010) and Caroline (Filipina) handle sensitive cultural and language moments so small issues never become big ones.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can you place a senior specialist, like a CPA or licensed engineer?
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">That is not our sweet spot. We place assistants for bookkeeping and billing, executive administration, AutoCAD technical drafting, real estate transaction coordination, customer service, data entry, social media, and AI operations. If you need a licensed specialist, we will tell you honestly.</div>
+        </div>
       </div>
     </div>
   </section>
